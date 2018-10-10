@@ -139,7 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Common\2D\Vector2D.h" />
-    <ClInclude Include=".\Common\Cgdi.h" />
     <ClInclude Include=".\Common\Graph\AStarHeuristicPolicies.h" />
     <ClInclude Include=".\Common\Graph\GraphAlgorithms.h" />
     <ClInclude Include=".\Common\Graph\GraphEdgeTypes.h" />
@@ -153,7 +152,6 @@
     <ClInclude Include=".\Common\misc\utils.h" />
     <ClInclude Include=".\Common\misc\WindowUtils.h" />
     <ClInclude Include=".\Common\Patterns\Singleton.h" />
-    <ClInclude Include=".\Common\PriorityQueue.h" />
     <ClInclude Include=".\Common\Time\PrecisionTimer.h" />
     <ClInclude Include=".\Common\utils.h" />
     <ClInclude Include="constants.h" />

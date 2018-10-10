@@ -21,6 +21,9 @@
 #define ID_MENU_SAVEAS                  40019
 #define ID_MENU_LOAD                    40020
 #define ID_MENU_NEW                     40021
+#define IDG_CREATE_GRAPH				40022
+#define IDH_EUCLIDIEN					40023
+#define	IDH_MANHATTAN					40024
 
 // Next default values for new objects
 // 

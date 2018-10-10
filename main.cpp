@@ -25,7 +25,7 @@
 //------------------------------------------------------------------------
 
 const char* g_szApplicationName = "PathFinder";
-const char*	g_szWindowClassName = "MyWindowClass";
+const char*	g_szWindowClassName = "IA TP3";
 
 Pathfinder* g_Pathfinder;
 

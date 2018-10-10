@@ -93,6 +93,15 @@ BEGIN
         MENUITEM "Graph",                       IDM_VIEW_GRAPH
         MENUITEM "Tiles",                       IDM_VIEW_TILES
     END
+	POPUP "Creation"
+	BEGIN
+		MENUITEM "Graph"						IDG_CREATE_GRAPH
+	END
+	POPUP "Heuristic"
+	BEGIN
+		MENUITEM "Euclidien"					IDH_EUCLIDIEN
+		MENUITEM "Manhattan"					IDH_MANHATTAN
+	END
 END
 
 
