@@ -318,7 +318,7 @@ void Pathfinder::CreatePathAStar()
   //create a couple of typedefs so the code will sit comfortably on the page   
   typedef Graph_SearchAStar<NavGraph, Heuristic_Euclid> AStarSearch;
 
-  //create an instance of the A* search using the Euclidean heuristic
+  //create an instance of the A* search using the chosen heuristic
   AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell);
   
 
