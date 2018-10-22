@@ -129,6 +129,7 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 
          CheckMenuItemAppropriately(hwnd, IDM_VIEW_TILES, g_Pathfinder->isShowTilesOn());
          CheckMenuItemAppropriately(hwnd, IDM_VIEW_GRAPH, g_Pathfinder->isShowGraphOn());
+		 ChangeMenuState(hwnd, IDH_EUCLIDIEN, MFS_CHECKED);
       }
 
       break;
