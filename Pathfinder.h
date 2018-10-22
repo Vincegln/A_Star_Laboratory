@@ -61,6 +61,9 @@ private:
   //the total cost of the path from target to source
   double                         m_dCostToTarget;
 
+  // Flag use to set the heuritic to Manhattan or Euclidien
+  bool							m_heuristic;
+
   //the currently selected algorithm
   algorithm_type                m_CurrentAlgorithm;
 
@@ -122,7 +125,8 @@ public:
                 m_icxClient(0),
                 m_icyClient(0),
                 m_dCostToTarget(0.0),
-                m_pGraph(NULL)
+                m_pGraph(NULL),
+				m_heuristic(false)
   {}
 
   ~Pathfinder(){delete m_pGraph;}
@@ -167,6 +171,10 @@ public:
 
   void Save( char* FileName);
   void Load( char* FileName);
+
+  // set the heuristic (Manhattan=true and euclidian=false in our algorith)
+  void setHeuristic(bool choice) { m_heuristic = choice; }
+
 
 };
 

@@ -372,6 +372,36 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 
           break;
 
+		case IDH_EUCLIDIEN:
+
+		  ChangeMenuState(hwnd, IDH_EUCLIDIEN, MFS_CHECKED);
+		  ChangeMenuState(hwnd, IDH_MANHATTAN, IMFS_UNCHECKED);
+
+		  g_Pathfinder->setHeuristic(false);
+
+		  if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+
+			g_Pathfinder->CreatePathAStar();
+		  }
+		  break;
+		
+		case IDH_MANHATTAN:
+
+		  ChangeMenuState(hwnd, IDH_EUCLIDIEN, MFS_UNCHECKED);
+		  ChangeMenuState(hwnd, IDH_MANHATTAN, IMFS_CHECKED);
+
+		  g_Pathfinder->setHeuristic(true);
+
+		  if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+			  g_Pathfinder->CreatePathAStar();
+		  }
+		  break;
+
+
+
+
       }//end switch
 
       RedrawWindowRect(hwnd, false, rectClientWindow);
