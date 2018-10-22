@@ -371,11 +371,11 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
           }
 
           break;
-
+		// Case of Euclidien heuristic
 		case IDH_EUCLIDIEN:
 
 		  ChangeMenuState(hwnd, IDH_EUCLIDIEN, MFS_CHECKED);
-		  ChangeMenuState(hwnd, IDH_MANHATTAN, IMFS_UNCHECKED);
+		  ChangeMenuState(hwnd, IDH_MANHATTAN, MFS_UNCHECKED);
 
 		  g_Pathfinder->setHeuristic(false);
 
@@ -385,11 +385,11 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 			g_Pathfinder->CreatePathAStar();
 		  }
 		  break;
-		
+		// Case of Manhattan heuristic
 		case IDH_MANHATTAN:
 
 		  ChangeMenuState(hwnd, IDH_EUCLIDIEN, MFS_UNCHECKED);
-		  ChangeMenuState(hwnd, IDH_MANHATTAN, IMFS_CHECKED);
+		  ChangeMenuState(hwnd, IDH_MANHATTAN, MFS_CHECKED);
 
 		  g_Pathfinder->setHeuristic(true);
 
@@ -399,7 +399,206 @@ LRESULT CALLBACK WindowProc (HWND   hwnd,
 		  }
 		  break;
 
+		// Differents case for differents values of Maxcost
+		case IDM_ONE_HUNDRED:
 
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(100);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_TWO_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(200);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_THREE_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(300);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_FOUR_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(400);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_FIVE_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(500);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_SIX_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(600);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_SEVEN_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(700);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_EIGHT_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(800);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_NINE_HUNDRED:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_CHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_UNCHECKED);
+
+			g_Pathfinder->setMaxCost(900);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
+
+		case IDM_THOUSAND:
+
+			ChangeMenuState(hwnd, IDM_ONE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_TWO_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THREE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FOUR_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_FIVE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SIX_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_SEVEN_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_EIGHT_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_NINE_HUNDRED, MFS_UNCHECKED);
+			ChangeMenuState(hwnd, IDM_THOUSAND, MFS_CHECKED);
+
+			g_Pathfinder->setMaxCost(1000);
+			if (CurrentSearchButton == ID_BUTTON_ASTAR) {
+
+				g_Pathfinder->CreatePathAStar();
+			}
+			break;
 
 
       }//end switch

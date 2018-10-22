@@ -64,6 +64,9 @@ private:
   // Flag use to set the heuritic to Manhattan or Euclidien
   bool							m_heuristic;
 
+  // Valus use to reduce the potential nodes of AStar
+  int							m_maxcost;
+
   //the currently selected algorithm
   algorithm_type                m_CurrentAlgorithm;
 
@@ -126,7 +129,8 @@ public:
                 m_icyClient(0),
                 m_dCostToTarget(0.0),
                 m_pGraph(NULL),
-				m_heuristic(false)
+				m_heuristic(false),
+				m_maxcost(1000)
   {}
 
   ~Pathfinder(){delete m_pGraph;}
@@ -174,6 +178,9 @@ public:
 
   // set the heuristic (Manhattan=true and euclidian=false in our algorith)
   void setHeuristic(bool choice) { m_heuristic = choice; }
+
+  // set the MaxCost
+  void setMaxCost(int choice) { m_maxcost = choice; }
 
 
 };

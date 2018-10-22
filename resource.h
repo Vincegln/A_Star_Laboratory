@@ -21,9 +21,18 @@
 #define ID_MENU_SAVEAS                  40019
 #define ID_MENU_LOAD                    40020
 #define ID_MENU_NEW                     40021
-#define IDG_CREATE_GRAPH				40022
+#define IDM_ONE_HUNDRED					40022
 #define IDH_EUCLIDIEN					40023
 #define	IDH_MANHATTAN					40024
+#define IDM_TWO_HUNDRED					40025
+#define IDM_THREE_HUNDRED				40026
+#define IDM_FOUR_HUNDRED				40027
+#define IDM_FIVE_HUNDRED				40028
+#define IDM_SIX_HUNDRED					40029
+#define IDM_SEVEN_HUNDRED				40030
+#define IDM_EIGHT_HUNDRED				40031
+#define IDM_NINE_HUNDRED				40032
+#define IDM_THOUSAND					40033
 
 // Next default values for new objects
 // 
