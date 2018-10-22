@@ -27,14 +27,14 @@
     <ClCompile Include="Pathfinder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\misc\Cgdi.cpp">
-      <Filter>common</Filter>
+    <ClCompile Include=".\Common\misc\Cgdi.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Time\PrecisionTimer.cpp">
-      <Filter>common</Filter>
+    <ClCompile Include=".\Common\misc\WindowUtils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\misc\WindowUtils.cpp">
-      <Filter>common</Filter>
+    <ClCompile Include=".\Common\Time\PrecisionTimer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,59 +47,53 @@
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Graph\AStarHeuristicPolicies.h">
-      <Filter>graph related files</Filter>
+    <ClInclude Include=".\Common\2D\Vector2D.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Graph\GraphAlgorithms.h">
-      <Filter>graph related files</Filter>
+    <ClInclude Include=".\Common\Graph\AStarHeuristicPolicies.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Graph\GraphEdgeTypes.h">
-      <Filter>graph related files</Filter>
+    <ClInclude Include=".\Common\Graph\GraphAlgorithms.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Graph\GraphNodeTypes.h">
-      <Filter>graph related files</Filter>
+    <ClInclude Include=".\Common\Graph\GraphEdgeTypes.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Graph\HandyGraphFunctions.h">
-      <Filter>graph related files</Filter>
+    <ClInclude Include=".\Common\Graph\GraphNodeTypes.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Graph\NodeTypeEnumerations.h">
-      <Filter>graph related files</Filter>
+    <ClInclude Include=".\Common\Graph\HandyGraphFunctions.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Graph\SparseGraph.h">
-      <Filter>graph related files</Filter>
+    <ClInclude Include=".\Common\Graph\NodeTypeEnumerations.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Cgdi.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\Graph\SparseGraph.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\misc\Cgdi.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\misc\Cgdi.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Time\PrecisionTimer.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\misc\PriorityQueue.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\misc\PriorityQueue.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\misc\Stream_Utility_Functions.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\PriorityQueue.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\misc\utils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\Patterns\Singleton.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\misc\WindowUtils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\misc\Stream_Utility_Functions.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\Patterns\Singleton.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\misc\utils.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\Time\PrecisionTimer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Common\utils.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Common\2D\Vector2D.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Common\misc\WindowUtils.h">
-      <Filter>common</Filter>
+    <ClInclude Include=".\Common\utils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

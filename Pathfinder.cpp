@@ -315,21 +315,43 @@ void Pathfinder::CreatePathAStar()
   //create and start a timer
   PrecisionTimer timer; timer.Start();
   
-  //create a couple of typedefs so the code will sit comfortably on the page   
-  typedef Graph_SearchAStar<NavGraph, Heuristic_Euclid> AStarSearch;
+  if (!m_heuristic) {
+	  typedef Graph_SearchAStar<NavGraph, Heuristic_Euclid> AStarSearch;
 
-  //create an instance of the A* search using the Euclidean heuristic
-  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell);
+	  //create an instance of the A* search using the chosen heuristic and the chosen maxcost
+	  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell, m_maxcost);
+
+
+	  //record the time taken  
+	  m_dTimeTaken = timer.TimeElapsed();
+
+	  m_Path = AStar.GetPathToTarget();
+
+	  m_SubTree = AStar.GetSPT();
+
+	  m_dCostToTarget = AStar.GetCostToTarget();
+  }
+  else {
+	  typedef Graph_SearchAStar<NavGraph, Heuristic_Manhattan> AStarSearch;
+
+	  //create an instance of the A* search using the chosen heuristic and the chosen maxcost
+	  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell, m_maxcost);
+
+
+	  //record the time taken  
+	  m_dTimeTaken = timer.TimeElapsed();
+
+	  m_Path = AStar.GetPathToTarget();
+
+	  m_SubTree = AStar.GetSPT();
+
+	  m_dCostToTarget = AStar.GetCostToTarget();
+  }
+
+  //create a couple of typedefs so the code will sit comfortably on the page   
   
 
-  //record the time taken  
-  m_dTimeTaken = timer.TimeElapsed();
 
-  m_Path = AStar.GetPathToTarget();
-
-  m_SubTree = AStar.GetSPT();
-
-  m_dCostToTarget = AStar.GetCostToTarget();
 
 }
 
