@@ -319,7 +319,7 @@ void Pathfinder::CreatePathAStar()
 	  typedef Graph_SearchAStar<NavGraph, Heuristic_Euclid> AStarSearch;
 
 	  //create an instance of the A* search using the chosen heuristic
-	  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell);
+	  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell, 534.0);
 
 
 	  //record the time taken  
@@ -335,7 +335,7 @@ void Pathfinder::CreatePathAStar()
 	  typedef Graph_SearchAStar<NavGraph, Heuristic_Manhattan> AStarSearch;
 
 	  //create an instance of the A* search using the chosen heuristic
-	  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell);
+	  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell, 534.0);
 
 
 	  //record the time taken  

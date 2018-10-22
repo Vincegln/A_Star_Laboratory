@@ -44,35 +44,39 @@ void GraphHelper_AddAllNeighboursToGridNode(graph_type& graph,
   {
     for (int j=-1; j<2; ++j)
     {
-      int nodeX = col+j;
-      int nodeY = row+i;
-
-      //skip if equal to this node
-      if ( (i == 0) && (j==0) ) continue;
-
-      //check to see if this is a valid neighbour
-      if (ValidNeighbour(nodeX, nodeY, NumCellsX, NumCellsY))
+      //refrains the graph from having diagonal links between nodes
+      if ((j == 0 && abs(i) == 1) || (i == 0 && abs(j) == 1))
       {
-        //calculate the distance to this node
-        Vector2D PosNode      = graph.GetNode(row*NumCellsX+col).Pos();
-        Vector2D PosNeighbour = graph.GetNode(nodeY*NumCellsX+nodeX).Pos();
+        int nodeX = col + j;
+        int nodeY = row + i;
 
-        double dist = PosNode.Distance(PosNeighbour);
+        //skip if equal to this node
+        if ((i == 0) && (j == 0)) continue;
 
-        //this neighbour is okay so it can be added
-        graph_type::EdgeType NewEdge(row*NumCellsX+col,
-                                     nodeY*NumCellsX+nodeX,
-                                     dist);
-        graph.AddEdge(NewEdge);
-
-        //if graph is not a diagraph then an edge needs to be added going
-        //in the other direction
-        if (!graph.isDigraph())
+        //check to see if this is a valid neighbour
+        if (ValidNeighbour(nodeX, nodeY, NumCellsX, NumCellsY))
         {
-          graph_type::EdgeType NewEdge(nodeY*NumCellsX+nodeX,
-                                       row*NumCellsX+col,
-                                       dist);
+          //calculate the distance to this node
+          Vector2D PosNode = graph.GetNode(row*NumCellsX + col).Pos();
+          Vector2D PosNeighbour = graph.GetNode(nodeY*NumCellsX + nodeX).Pos();
+
+          double dist = PosNode.Distance(PosNeighbour);
+
+          //this neighbour is okay so it can be added
+          graph_type::EdgeType NewEdge(row*NumCellsX + col,
+            nodeY*NumCellsX + nodeX,
+            dist);
           graph.AddEdge(NewEdge);
+
+          //if graph is not a diagraph then an edge needs to be added going
+          //in the other direction
+          if (!graph.isDigraph())
+          {
+            graph_type::EdgeType NewEdge(nodeY*NumCellsX + nodeX,
+              row*NumCellsX + col,
+              dist);
+            graph.AddEdge(NewEdge);
+          }
         }
       }
     }

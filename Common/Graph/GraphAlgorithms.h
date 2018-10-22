@@ -544,7 +544,10 @@ private:
   std::vector<const Edge*>       m_SearchFrontier;
 
   int                            m_iSource;
-  int                            m_iTarget;
+  int                            m_iTarget; 
+  
+  //maximum admissible cost
+  double						             m_maxCost; 
 
   //the A* search algorithm
   void Search();
@@ -553,13 +556,15 @@ public:
 
   Graph_SearchAStar(graph_type &graph,
                     int   source,
-                    int   target):m_Graph(graph),
+                    int   target,
+					          float maxCost):m_Graph(graph),
                                   m_ShortestPathTree(graph.NumNodes()),                              
                                   m_SearchFrontier(graph.NumNodes()),
                                   m_GCosts(graph.NumNodes(), 0.0),
                                   m_FCosts(graph.NumNodes(), 0.0),
                                   m_iSource(source),
-                                  m_iTarget(target)
+                                  m_iTarget(target),
+								                  m_maxCost(maxCost)
   {
     Search();   
   }
@@ -598,44 +603,50 @@ void Graph_SearchAStar<graph_type, heuristic>::Search()
     //if the target has been found exit
     if (NextClosestNode == m_iTarget) return;
 
-    //now to test all the edges attached to this node
-    graph_type::ConstEdgeIterator ConstEdgeItr(m_Graph, NextClosestNode);
 
-    for (const Edge* pE=ConstEdgeItr.begin();
-        !ConstEdgeItr.end(); 
-         pE=ConstEdgeItr.next())
-    {
-      //calculate the heuristic cost from this node to the target (H)                       
-      double HCost = heuristic::Calculate(m_Graph, m_iTarget, pE->To()); 
+	//now to test all the edges attached to this node
+	graph_type::ConstEdgeIterator ConstEdgeItr(m_Graph, NextClosestNode);
 
-      //calculate the 'real' cost to this node from the source (G)
-      double GCost = m_GCosts[NextClosestNode] + pE->Cost();
+	for (const Edge* pE = ConstEdgeItr.begin();
+		!ConstEdgeItr.end();
+		pE = ConstEdgeItr.next())
+	{
+		//if the total cost is too high, analyze next node
+		if (m_maxCost > m_FCosts[pE->To()])
+		{
 
-      //if the node has not been added to the frontier, add it and update
-      //the G and F costs
-      if (m_SearchFrontier[pE->To()] == NULL)
-      {
-        m_FCosts[pE->To()] = GCost + HCost;
-        m_GCosts[pE->To()] = GCost;
+			//calculate the heuristic cost from this node to the target (H)                       
+			double HCost = heuristic::Calculate(m_Graph, m_iTarget, pE->To());
 
-        pq.insert(pE->To());
+			//calculate the 'real' cost to this node from the source (G)
+			double GCost = m_GCosts[NextClosestNode] + pE->Cost();
 
-        m_SearchFrontier[pE->To()] = pE;
-      }
+			//if the node has not been added to the frontier, add it and update
+			//the G and F costs
+			if (m_SearchFrontier[pE->To()] == NULL)
+			{
+				m_FCosts[pE->To()] = GCost + HCost;
+				m_GCosts[pE->To()] = GCost;
 
-      //if this node is already on the frontier but the cost to get here
-      //is cheaper than has been found previously, update the node
-      //costs and frontier accordingly.
-      else if ((GCost < m_GCosts[pE->To()]) && (m_ShortestPathTree[pE->To()]==NULL))
-      {
-        m_FCosts[pE->To()] = GCost + HCost;
-        m_GCosts[pE->To()] = GCost;
+				pq.insert(pE->To());
 
-        pq.ChangePriority(pE->To());
+				m_SearchFrontier[pE->To()] = pE;
+			}
 
-        m_SearchFrontier[pE->To()] = pE;
-      }
-    }
+			//if this node is already on the frontier but the cost to get here
+			//is cheaper than has been found previously, update the node
+			//costs and frontier accordingly.
+			else if ((GCost < m_GCosts[pE->To()]) && (m_ShortestPathTree[pE->To()] == NULL))
+			{
+				m_FCosts[pE->To()] = GCost + HCost;
+				m_GCosts[pE->To()] = GCost;
+
+				pq.ChangePriority(pE->To());
+
+				m_SearchFrontier[pE->To()] = pE;
+			}
+		}
+	}
   }
 }
 
