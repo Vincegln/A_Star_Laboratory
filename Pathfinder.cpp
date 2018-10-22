@@ -316,10 +316,10 @@ void Pathfinder::CreatePathAStar()
   PrecisionTimer timer; timer.Start();
   
   //create a couple of typedefs so the code will sit comfortably on the page   
-  typedef Graph_SearchAStar<NavGraph, Heuristic_Euclid> AStarSearch;
+  typedef Graph_SearchAStar<NavGraph, Heuristic_Manhattan> AStarSearch;
 
-  //create an instance of the A* search using the chosen heuristic
-  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell);
+  //create an instance of the A* search using the chosen heuristic and maximum admissible cost
+  AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell, 534.0);
   
 
   //record the time taken  
